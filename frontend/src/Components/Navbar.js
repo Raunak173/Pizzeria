@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   bar: {
-    backgroundColor: "#0077b6",
+    backgroundColor: "#e71d36",
     height: "10vh",
     display: "flex",
     flexDirection: "row",
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     fontWeight: "bold",
-    color: "#03071e",
+    color: "white",
     fontFamily: "Montserrat",
     fontSize: "35px",
   },
@@ -40,7 +40,7 @@ function Navbar() {
             color="inherit"
             style={{
               paddingLeft: "75vw",
-              color: "black",
+              color: "white",
               fontWeight: "bold",
               fontSize: "15px",
             }}
@@ -52,7 +52,7 @@ function Navbar() {
             color="inherit"
             style={{
               paddingLeft: "3vw",
-              color: "black",
+              color: "white",
               fontWeight: "bold",
               fontSize: "15px",
             }}
