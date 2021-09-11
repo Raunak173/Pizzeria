@@ -1,9 +1,12 @@
 import "./App.css";
+import Navbar from "./Components/Navbar";
+import HomeScreen from "./Screens/HomeScreen";
 
 function App() {
   return (
     <div className="App">
-      <h1>Pizza shop</h1>
+      <Navbar />
+      <HomeScreen />
     </div>
   );
 }
