@@ -74,6 +74,10 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
   },
+  price: {
+    color: "#40916c",
+    fontWeight: "bold",
+  },
 }));
 
 function Pizza({ pizza }) {
@@ -150,7 +154,9 @@ function Pizza({ pizza }) {
         </div>
         <div className={classes.container2}>
           <div>
-            <h4>{pizza.prices[0][varient] * qty} Rs/-</h4>
+            <h4 className={classes.price}>
+              {pizza.prices[0][varient] * qty} Rs/-
+            </h4>
           </div>
           <Button
             variant="contained"

@@ -11,7 +11,7 @@ app.get("/", function (req, res) {
   res.send("hello world");
 });
 
-app.get("/getPizzas", function (req, res) {
+app.get("/getpizzas", function (req, res) {
   pizza.find({}, (err, docs) => {
     if (err) {
       console.log(err);
