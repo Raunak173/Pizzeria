@@ -10,13 +10,9 @@ import {
 } from "@material-ui/core";
 import React, { useState } from "react";
 
-function rand() {
-  return Math.round(Math.random() * 20) - 10;
-}
-
 function getModalStyle() {
-  const top = 50 + rand();
-  const left = 50 + rand();
+  const top = 50;
+  const left = 50;
 
   return {
     top: `${top}%`,
@@ -38,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "#edf2f4",
     },
     [theme.breakpoints.down("md")]: {
-      width: "80%",
+      width: "90%",
       margin: "5%",
       display: "flex",
       flexDirection: "column",
@@ -82,7 +78,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2, 4, 3),
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
+    // justifyContent: "center",
     alignItems: "center",
   },
   price: {

@@ -12,21 +12,11 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   bar: {
-    [theme.breakpoints.up("md")]: {
-      backgroundColor: "#e71d36",
-      height: "10vh",
-      display: "flex",
-      flexDirection: "row",
-      alignItems: "center",
-    },
-    [theme.breakpoints.down("md")]: {
-      backgroundColor: "#e71d36",
-      height: "10vh",
-      display: "flex",
-      flexDirection: "row",
-      alignItems: "center",
-      justifyContent: "center",
-    },
+    backgroundColor: "#e71d36",
+    height: "10vh",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
   },
   title: {
     [theme.breakpoints.up("md")]: {
@@ -92,6 +82,48 @@ function Navbar() {
                 color: "white",
                 fontWeight: "bold",
                 fontSize: "15px",
+              }}
+            >
+              About
+            </Typography>
+          )}
+          {!showText && (
+            <Typography
+              variant="h6"
+              color="inherit"
+              style={{
+                paddingLeft: "30vw",
+                color: "white",
+                fontWeight: "bold",
+                fontSize: "10px",
+              }}
+            >
+              Login
+            </Typography>
+          )}
+          {!showText && (
+            <Typography
+              variant="h6"
+              color="inherit"
+              style={{
+                paddingLeft: "3vw",
+                color: "white",
+                fontWeight: "bold",
+                fontSize: "10px",
+              }}
+            >
+              Cart
+            </Typography>
+          )}
+          {!showText && (
+            <Typography
+              variant="h6"
+              color="inherit"
+              style={{
+                paddingLeft: "3vw",
+                color: "white",
+                fontWeight: "bold",
+                fontSize: "10px",
               }}
             >
               About
