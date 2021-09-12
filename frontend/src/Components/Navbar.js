@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, useMediaQuery, useTheme } from "@material-ui/core";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -12,22 +12,42 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   bar: {
-    backgroundColor: "#e71d36",
-    height: "10vh",
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
+    [theme.breakpoints.up("md")]: {
+      backgroundColor: "#e71d36",
+      height: "10vh",
+      display: "flex",
+      flexDirection: "row",
+      alignItems: "center",
+    },
+    [theme.breakpoints.down("md")]: {
+      backgroundColor: "#e71d36",
+      height: "10vh",
+      display: "flex",
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "center",
+    },
   },
   title: {
-    fontWeight: "bold",
-    color: "white",
-    fontFamily: "Montserrat",
-    fontSize: "35px",
+    [theme.breakpoints.up("md")]: {
+      fontWeight: "bold",
+      color: "white",
+      fontFamily: "Montserrat",
+      fontSize: "35px",
+    },
+    [theme.breakpoints.down("md")]: {
+      fontWeight: "bold",
+      color: "white",
+      fontFamily: "Montserrat",
+      fontSize: "20px",
+    },
   },
 }));
 
 function Navbar() {
   const classes = useStyles();
+  const theme = useTheme();
+  const showText = useMediaQuery(theme.breakpoints.up("md"));
   return (
     <div className={classes.root}>
       <AppBar position="static" className={classes.bar}>
@@ -35,42 +55,48 @@ function Navbar() {
           <Typography variant="h3" color="inherit" className={classes.title}>
             Pizzeria 🍕
           </Typography>
-          <Typography
-            variant="h6"
-            color="inherit"
-            style={{
-              paddingLeft: "68vw",
-              color: "white",
-              fontWeight: "bold",
-              fontSize: "15px",
-            }}
-          >
-            Login
-          </Typography>
-          <Typography
-            variant="h6"
-            color="inherit"
-            style={{
-              paddingLeft: "3vw",
-              color: "white",
-              fontWeight: "bold",
-              fontSize: "15px",
-            }}
-          >
-            Cart
-          </Typography>
-          <Typography
-            variant="h6"
-            color="inherit"
-            style={{
-              paddingLeft: "3vw",
-              color: "white",
-              fontWeight: "bold",
-              fontSize: "15px",
-            }}
-          >
-            About
-          </Typography>
+          {showText && (
+            <Typography
+              variant="h6"
+              color="inherit"
+              style={{
+                paddingLeft: "68vw",
+                color: "white",
+                fontWeight: "bold",
+                fontSize: "15px",
+              }}
+            >
+              Login
+            </Typography>
+          )}
+          {showText && (
+            <Typography
+              variant="h6"
+              color="inherit"
+              style={{
+                paddingLeft: "3vw",
+                color: "white",
+                fontWeight: "bold",
+                fontSize: "15px",
+              }}
+            >
+              Cart
+            </Typography>
+          )}
+          {showText && (
+            <Typography
+              variant="h6"
+              color="inherit"
+              style={{
+                paddingLeft: "3vw",
+                color: "white",
+                fontWeight: "bold",
+                fontSize: "15px",
+              }}
+            >
+              About
+            </Typography>
+          )}
         </Toolbar>
       </AppBar>
     </div>

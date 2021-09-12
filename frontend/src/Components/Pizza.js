@@ -1,6 +1,5 @@
 import {
   Card,
-  CardContent,
   CardMedia,
   CardHeader,
   makeStyles,
@@ -28,14 +27,26 @@ function getModalStyle() {
 
 const useStyles = makeStyles((theme) => ({
   card: {
-    width: "25%",
-    margin: "2%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: "1%",
-    backgroundColor: "#edf2f4",
+    [theme.breakpoints.up("md")]: {
+      width: "25%",
+      margin: "2%",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      padding: "1%",
+      backgroundColor: "#edf2f4",
+    },
+    [theme.breakpoints.down("md")]: {
+      width: "80%",
+      margin: "5%",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      padding: "3%",
+      backgroundColor: "#edf2f4",
+    },
   },
   title: {
     fontWeight: "900",
