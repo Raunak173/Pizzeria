@@ -268,4 +268,5 @@ const pizzas = [
       "Loaded with a delicious creamy tomato pasta topping, BBQ pepper chicken, green capsicum, crunchy red and yellow bell peppers.",
   },
 ];
-export default pizzas;
+
+module.exports = pizzas;

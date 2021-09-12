@@ -39,7 +39,7 @@ function Navbar() {
             variant="h6"
             color="inherit"
             style={{
-              paddingLeft: "75vw",
+              paddingLeft: "68vw",
               color: "white",
               fontWeight: "bold",
               fontSize: "15px",
@@ -58,6 +58,18 @@ function Navbar() {
             }}
           >
             Cart
+          </Typography>
+          <Typography
+            variant="h6"
+            color="inherit"
+            style={{
+              paddingLeft: "3vw",
+              color: "white",
+              fontWeight: "bold",
+              fontSize: "15px",
+            }}
+          >
+            About
           </Typography>
         </Toolbar>
       </AppBar>
