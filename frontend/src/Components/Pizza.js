@@ -9,6 +9,8 @@ import {
   Modal,
 } from "@material-ui/core";
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../redux/actions/cartActions";
 
 function getModalStyle() {
   const top = 50;
@@ -89,6 +91,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Pizza({ pizza }) {
   const classes = useStyles();
+  const dispatch = useDispatch();
   const [qty, setQty] = useState(1);
   const [varient, setVarient] = useState("small");
   const [modalStyle] = React.useState(getModalStyle);
@@ -100,6 +103,10 @@ function Pizza({ pizza }) {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleCart = () => {
+    dispatch(addToCart(pizza, qty, varient));
   };
 
   const body = (
@@ -169,6 +176,7 @@ function Pizza({ pizza }) {
             variant="contained"
             className={classes.btn}
             style={{ backgroundColor: "#e71d36", color: "white" }}
+            onClick={handleCart}
           >
             Add to cart
           </Button>

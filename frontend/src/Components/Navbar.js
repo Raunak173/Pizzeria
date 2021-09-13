@@ -3,6 +3,8 @@ import { makeStyles, useMediaQuery, useTheme } from "@material-ui/core";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Navbar() {
   const classes = useStyles();
+  const cartState = useSelector((state) => state.cartReducer);
   const theme = useTheme();
   const showText = useMediaQuery(theme.breakpoints.up("md"));
   return (
@@ -70,7 +73,12 @@ function Navbar() {
                 fontSize: "15px",
               }}
             >
-              Cart
+              <Link
+                to="/cart"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                Cart : {cartState.cartItems.length}
+              </Link>
             </Typography>
           )}
           {showText && (
@@ -84,7 +92,12 @@ function Navbar() {
                 fontSize: "15px",
               }}
             >
-              About
+              <Link
+                to="/about"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                About
+              </Link>
             </Typography>
           )}
           {!showText && (
@@ -112,7 +125,12 @@ function Navbar() {
                 fontSize: "10px",
               }}
             >
-              Cart
+              <Link
+                to="/cart"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                Cart : {cartState.cartItems.length}
+              </Link>
             </Typography>
           )}
           {!showText && (
@@ -126,7 +144,12 @@ function Navbar() {
                 fontSize: "10px",
               }}
             >
-              About
+              <Link
+                to="/about"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                About
+              </Link>
             </Typography>
           )}
         </Toolbar>
