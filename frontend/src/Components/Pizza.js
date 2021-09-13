@@ -80,7 +80,6 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2, 4, 3),
     display: "flex",
     flexDirection: "column",
-    // justifyContent: "center",
     alignItems: "center",
   },
   price: {

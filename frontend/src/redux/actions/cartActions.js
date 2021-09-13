@@ -13,3 +13,7 @@ export const addToCart = (pizza, quantity, varient) => (dispatch) => {
 
   dispatch({ type: "ADD_TO_CART", payload: cartItem });
 };
+
+export const deleteFromCart = (pizza) => (dispatch) => {
+  dispatch({ type: "DELETE_FROM_CART", payload: pizza });
+};

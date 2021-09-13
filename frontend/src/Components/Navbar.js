@@ -46,7 +46,9 @@ function Navbar() {
       <AppBar position="static" className={classes.bar}>
         <Toolbar variant="dense" className={classes.tool}>
           <Typography variant="h3" color="inherit" className={classes.title}>
-            Pizzeria 🍕
+            <Link to="/" style={{ color: "white", textDecoration: "none" }}>
+              Pizzeria 🍕
+            </Link>
           </Typography>
           {showText && (
             <Typography

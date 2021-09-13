@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  Button,
   makeStyles,
   Table,
   TableBody,
@@ -9,7 +10,8 @@ import {
   TableRow,
   Typography,
 } from "@material-ui/core";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { deleteFromCart } from "../redux/actions/cartActions";
 
 const useStyles = makeStyles((theme) => ({
   left: {
@@ -23,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    paddingTop: "1%",
+    justifyContent: "center",
   },
   [theme.breakpoints.up("md")]: {
     cont: {
@@ -44,8 +46,10 @@ const useStyles = makeStyles((theme) => ({
 
 const CartScreen = () => {
   const classes = useStyles();
+  const dispatch = useDispatch();
   const cartState = useSelector((state) => state.cartReducer);
   const cartItems = cartState.cartItems;
+  let subTotal = cartItems.reduce((x, item) => x + item.price, 0);
   return (
     <div className={classes.cont}>
       <div className={classes.left}>
@@ -75,7 +79,11 @@ const CartScreen = () => {
                     <img src={item.image} height="100px" width="120px" />
                   </TableCell>
                   <TableCell>
-                    <i className="fa fa-trash" aria-hidden="true"></i>
+                    <i
+                      className="fa fa-trash"
+                      aria-hidden="true"
+                      onClick={() => dispatch(deleteFromCart(item))}
+                    ></i>
                   </TableCell>
                 </TableRow>
               ))}
@@ -84,7 +92,21 @@ const CartScreen = () => {
         </TableContainer>
       </div>
       <div className={classes.right}>
-        <h1>Your Cart Total 💰 :</h1>
+        <h1>Your Cart Total is 💰 :</h1>
+        <Typography variant="h3" style={{ color: "green" }}>
+          {subTotal} /Rs-
+        </Typography>
+        <Button
+          variant="contained"
+          style={{
+            marginTop: "2%",
+            backgroundColor: "blue",
+            color: "white",
+            padding: "3%",
+          }}
+        >
+          Proceed to pay
+        </Button>
       </div>
     </div>
   );
