@@ -1,7 +1,7 @@
 const express = require("express");
 const connectDB = require("./db");
-const pizza = require("./models/PizzaModel");
 const pizzasRoute = require("./routes/pizzasRoute");
+const userRoute = require("./routes/userRoute");
 const app = express();
 
 connectDB();
@@ -9,6 +9,7 @@ connectDB();
 app.use(express.json());
 
 app.use("/api/pizzas/", pizzasRoute);
+app.use("/api/users/", userRoute);
 
 app.get("/", function (req, res) {
   res.send("hello world");

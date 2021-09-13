@@ -61,7 +61,12 @@ function Navbar() {
                 fontSize: "15px",
               }}
             >
-              Login
+              <Link
+                to="/login"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                Log In
+              </Link>
             </Typography>
           )}
           {showText && (
@@ -113,7 +118,12 @@ function Navbar() {
                 fontSize: "10px",
               }}
             >
-              Login
+              <Link
+                to="/login"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                Log In
+              </Link>
             </Typography>
           )}
           {!showText && (
