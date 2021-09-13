@@ -92,7 +92,7 @@ const CartScreen = () => {
         </TableContainer>
       </div>
       <div className={classes.right}>
-        <h1>Your Cart Total is 💰 :</h1>
+        <Typography variant="h1">Your Cart Total is 💰 :</Typography>
         <Typography variant="h3" style={{ color: "green" }}>
           {subTotal} /Rs-
         </Typography>
