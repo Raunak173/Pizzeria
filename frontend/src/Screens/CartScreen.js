@@ -13,6 +13,7 @@ import {
 } from "@material-ui/core";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteFromCart } from "../redux/actions/cartActions";
+import { Checkout } from "../Components/Checkout";
 
 const useStyles = makeStyles((theme) => ({
   left: {
@@ -99,17 +100,7 @@ const CartScreen = () => {
             <Typography variant="h3" style={{ color: "green" }}>
               {subTotal} /Rs-
             </Typography>
-            <Button
-              variant="contained"
-              style={{
-                marginTop: "2%",
-                backgroundColor: "blue",
-                color: "white",
-                padding: "3%",
-              }}
-            >
-              Proceed to pay
-            </Button>
+            <Checkout subTotal={subTotal} />
           </div>
         </>
       )}
