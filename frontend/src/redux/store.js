@@ -5,12 +5,14 @@ import { getAllPizzasReducer } from "./reducers/pizzaReducers";
 import { cartReducer } from "./reducers/cartReducers";
 import { registerUserReducer } from "./reducers/userReducers";
 import { loginUserReducer } from "./reducers/userReducers";
+import { placeOrderReducer } from "./reducers/orderReducers";
 
 const finalReducer = combineReducers({
   getAllPizzasReducer: getAllPizzasReducer,
   cartReducer: cartReducer,
   registerUserReducer: registerUserReducer,
   loginUserReducer: loginUserReducer,
+  placeOrderReducer: placeOrderReducer,
 });
 
 const currentUser = localStorage.getItem("currentUser")
