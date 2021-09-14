@@ -115,7 +115,7 @@ const CartScreen = () => {
       )}
       {subTotal === 0 && (
         <Container style={{ margin: "auto" }}>
-          <h1>Looks that the cart is empty :/</h1>
+          <h1>Looks as if the cart is empty :/</h1>
         </Container>
       )}
     </div>

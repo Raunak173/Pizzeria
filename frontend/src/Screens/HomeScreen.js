@@ -1,6 +1,7 @@
 import { Container, makeStyles } from "@material-ui/core";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Loader from "../Components/Loader";
 import Pizza from "../Components/Pizza";
 import { getAllPizzas } from "../redux/actions/pizzaActions";
 
@@ -37,7 +38,7 @@ function HomeScreen() {
   return (
     <Container className={classes.cont}>
       {loading ? (
-        <h1>Loading... :)</h1>
+        <Loader />
       ) : error ? (
         <h1>Something went wrong :/</h1>
       ) : (

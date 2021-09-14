@@ -11,6 +11,9 @@ import Container from "@material-ui/core/Container";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../redux/actions/userActions";
+import Loader from "../Components/Loader";
+import Success from "../Components/Success";
+import Error from "../Components/Error";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -41,6 +44,9 @@ export default function SignUpScreen() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [address, setAddress] = useState("");
+
+  const registerState = useSelector((state) => state.registerUserReducer);
+  const { error, loading, success } = registerState;
 
   const register = () => {
     if (password != confirmPassword) {
@@ -164,6 +170,9 @@ export default function SignUpScreen() {
             </Grid>
           </div>
         </div>
+        {loading && <Loader />}
+        {success && <Success success={"You are successfully registerd"} />}
+        {error && <Error error={"Email already exists"} />}
       </Container>
     </div>
   );

@@ -5,6 +5,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import Dropdown from "./Dropdown";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,6 +40,8 @@ const useStyles = makeStyles((theme) => ({
 function Navbar() {
   const classes = useStyles();
   const cartState = useSelector((state) => state.cartReducer);
+  const userState = useSelector((state) => state.loginUserReducer);
+  const { currentUser } = userState;
   const theme = useTheme();
   const showText = useMediaQuery(theme.breakpoints.up("md"));
   return (
@@ -55,18 +58,26 @@ function Navbar() {
               variant="h6"
               color="inherit"
               style={{
-                paddingLeft: "68vw",
+                paddingLeft: "65vw",
                 color: "white",
                 fontWeight: "bold",
                 fontSize: "15px",
               }}
             >
-              <Link
-                to="/login"
-                style={{ color: "white", textDecoration: "none" }}
-              >
-                Log In
-              </Link>
+              {currentUser && (
+                <Dropdown
+                  currentUser={currentUser}
+                  style={{ color: "white", textDecoration: "none" }}
+                />
+              )}
+              {!currentUser && (
+                <Link
+                  to="/login"
+                  style={{ color: "white", textDecoration: "none" }}
+                >
+                  Log In
+                </Link>
+              )}
             </Typography>
           )}
           {showText && (
@@ -112,18 +123,30 @@ function Navbar() {
               variant="h6"
               color="inherit"
               style={{
-                paddingLeft: "30vw",
+                paddingLeft: "15vw",
                 color: "white",
                 fontWeight: "bold",
                 fontSize: "10px",
               }}
             >
-              <Link
-                to="/login"
-                style={{ color: "white", textDecoration: "none" }}
-              >
-                Log In
-              </Link>
+              {currentUser && (
+                <Dropdown
+                  currentUser={currentUser}
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    paddingLeft: "10vw",
+                  }}
+                />
+              )}
+              {!currentUser && (
+                <Link
+                  to="/login"
+                  style={{ color: "white", textDecoration: "none" }}
+                >
+                  Log In
+                </Link>
+              )}
             </Typography>
           )}
           {!showText && (
