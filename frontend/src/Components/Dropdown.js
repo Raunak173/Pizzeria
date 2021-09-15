@@ -4,6 +4,7 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { logoutUser } from "../redux/actions/userActions";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 export default function Dropdown({ currentUser }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -34,7 +35,11 @@ export default function Dropdown({ currentUser }) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem>Orders</MenuItem>
+        <MenuItem>
+          <Link to="/orders" style={{ color: "black", textDecoration: "none" }}>
+            Orders
+          </Link>
+        </MenuItem>
         <MenuItem onClick={() => dispatch(logoutUser())}>Logout</MenuItem>
       </Menu>
     </div>

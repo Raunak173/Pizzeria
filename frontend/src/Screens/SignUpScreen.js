@@ -49,7 +49,7 @@ export default function SignUpScreen() {
   const { error, loading, success } = registerState;
 
   const register = () => {
-    if (password != confirmPassword) {
+    if (password !== confirmPassword) {
       alert("Passwords doesn't matched");
     } else {
       const user = {

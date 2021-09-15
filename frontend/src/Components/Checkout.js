@@ -1,18 +1,24 @@
 import { Button } from "@material-ui/core";
 import React from "react";
 import StripeCheckout from "react-stripe-checkout";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { placeOrder } from "../redux/actions/orderActions";
+import Loader from "./Loader";
+import Success from "./Success";
+import Error from "./Error";
 
 export const Checkout = ({ subTotal }) => {
   const dispatch = useDispatch();
+  const orderState = useSelector((state) => state.placeOrderReducer);
+  const { loading, error, success } = orderState;
   const tokenHandler = (token) => {
-    console.log(token);
-    console.log(process.env.REACT_APP_STRIPE_KEY);
     dispatch(placeOrder(token, subTotal));
   };
   return (
     <div>
+      {loading && <Loader />}
+      {error && <Error error={"Something went wrong"} />}
+      {success && <Success success={"Your order placed successfully :)"} />}
       <StripeCheckout
         amount={subTotal * 100}
         shippingAddress

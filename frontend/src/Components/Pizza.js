@@ -9,7 +9,7 @@ import {
   Modal,
 } from "@material-ui/core";
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/actions/cartActions";
 
 function getModalStyle() {
